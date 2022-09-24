@@ -4,8 +4,11 @@ import { map } from "rxjs";
 
 
 
-const BaseUrl = "http://sspringboot-crs-app:8080";
+// const BaseUrl = "http://sspringboot-crs-app:8080";
 // const BaseUrl = "http://localhost:8000";
+const BaseUrl = "http://44.203.55.243:8000";
+
+
 
 
 
