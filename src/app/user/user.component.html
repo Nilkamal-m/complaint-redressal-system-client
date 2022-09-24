@@ -1,0 +1,47 @@
+<app-header></app-header>
+<div class="container">
+  <div class="row">
+    <div class="col-6 m-auto mt-5">
+      <form method="post" name="complainform">
+        <div class="form-outline mb-2">
+          <input
+            type="text"
+            id="complain"
+            name="complain"
+            [(ngModel)]="complain"
+            placeholder="Enter Your Complain"
+            class="form-control me-2"
+            required
+          />
+        </div>
+        <button
+          class="btn btn-primary btn-block mb-4"
+          type="button"
+          value="Log In"
+          (click)="doSubmit()"
+        >
+          Submit
+        </button>
+      </form>
+    </div>
+    <div class="col-6 mt-5" *ngIf="complainList">
+      <p class="fw-bolder">Complains</p>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <td scope="col">Complain Id</td>
+            <td scope="col">Complain</td>
+            <td scope="col">Status</td>
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let comp of complainList">
+            <td>{{comp['cid']}}</td>
+            <td>{{comp['complain']}}</td>
+            <td>{{comp['status']}}</td>
+          </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+</div>

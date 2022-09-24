@@ -1,0 +1,79 @@
+<app-header></app-header>
+<div class="container">
+    <div class="row">
+      <div class="col-6 m-auto mt-5">
+        <form method="post" name="complainform">
+            <h2>Register New User</h2>
+            <div *ngIf="msg!=null" class="alert {{cssClass}} m-2" role="alert">
+                {{msg}}
+              </div>
+            <div class="form-outline mb-4">
+                <input
+                  type="text"
+                  id="username"
+                  name="username"
+                  [(ngModel)]="username"
+                  placeholder="Username"
+                  class="form-control"
+                />
+              </div>
+      
+              <!-- Password input -->
+              <div class="form-outline mb-4">
+                <input
+                  type="password"
+                  id="password"
+                  name="password"
+                  [(ngModel)]="password"
+                  placeholder="password"
+                  class="form-control"
+                />
+              </div>
+              <label class="mb-2">Role</label>
+              <div class="form-outline mb-4">
+                <select
+                  class="custom-select"
+                  id="inputGroupSelect02"
+                  [(ngModel)]="selector"
+                  name="selector"
+                >
+                  <option>ADMIN</option>
+                  <option>MANAGER</option>
+                  <option>ENGG</option>
+                </select>
+              </div>
+              
+          <button
+            class="btn btn-primary btn-block mb-4"
+            type="button"
+            value="Log In"
+            (click)="doSubmit()"
+          >
+            Register
+          </button>
+        </form>
+      </div>
+      <div class="col-6 mt-5" *ngIf="complainList">
+        <p class="fw-bolder">Complains</p>
+        <table  class="table table-bordered">
+          <thead>
+            <tr>
+              <td scope="col">Complain Id</td>
+              <td scope="col">Complain</td>
+              <td scope="col">Assign Engineer ID</td>
+              <td scope="col">Status</td>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let comp of complainList">
+              <td>{{comp['cid']}}</td>
+              <td>{{comp['complain']}}</td>
+              <td>{{comp['assignEnggId']}}</td>
+              <td>{{comp['status']}}</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+  </div>
+  
